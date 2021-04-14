@@ -1,0 +1,28 @@
+<div class="container w-50 border border-dark-gray p-5">
+<h1 class="header text-center">Login </h1><br><br>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" class="container-fluid ">
+<div class="form-group">
+     <input class='form-control' type='text' id='userName' placeholder="Please enter your Email" formControlName='userName' [ngClass]="{'is-invalid':loginForm.get('userName').invalid && loginForm.get('userName').touched}">
+                    <div class='invalid-feedback' *ngIf="loginForm.get('userName').errors">
+                        <div *ngIf="loginForm.get('userName').errors.required">Please enter Email!!</div>
+                        <div *ngIf="loginForm.get('userName').errors.pattern"> Username is not valid.</div>
+                    </div>
+  </div><br>
+
+<div class="form-group ">
+  <input class='form-control' type='password' id='password' placeholder="Password" formControlName='password' [ngClass]="{'is-invalid':loginForm.get('password').invalid && loginForm.get('password').touched}" />
+                    <div class='invalid-feedback' *ngIf="loginForm.get('password').errors">
+                        <div *ngIf="loginForm.get('password').errors.required">Please enter password!!</div>
+                        <div *ngIf="loginForm.get('password').errors.pattern"> Password is not valid</div>
+                    </div></div><br>
+
+<div class="form-row">
+<div class="form-group ">
+ <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid" style="width: 100%; ">LOGIN</button>
+</div>
+</div>
+
+</form>
+<!--  <router-outlet></router-outlet>-->
+
+</div>

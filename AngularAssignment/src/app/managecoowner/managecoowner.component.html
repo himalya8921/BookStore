@@ -1,0 +1,23 @@
+<div class="container my-5">
+    <h1 class="text-center">Owners</h1>
+    <table class="table table-striped border-secondary">
+        <thead class="lead">
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let owner of ownerList">
+                <td>{{owner.userName}}</td>
+                <td>{{owner.userFullName}}</td>
+                <td>{{owner.userAddress}}</td>
+                <td><button class="btn btn-danger" style="width: 100%;" (click)=RemoveOwner(owner.userId)>REMOVE</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

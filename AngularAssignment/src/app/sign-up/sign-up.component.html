@@ -1,0 +1,48 @@
+
+     <div class="form-group p-4">
+     <h4>Already have an account?</h4>
+            <button class="btn btn-success"><a href="#" [routerLink]="['/login']" style="text-decoration: none; color: white;">Login</a></button> </div>
+
+<div class="container border  mt-5 mb-5">
+    <h1 class="text-center pt-3" >Signup</h1>
+    <p class=" text-center">Create a New Accout!!</p>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)" class="container-fluid">
+        <div class="form-group">
+            <label for="userFullName" class="col-form-label">Email Address:</label>
+            <input class='form-control' type='text' id='userName' placeholder="Please enter your Email" formControlName='userName' [ngClass]="{'is-invalid':signupForm.get('userName').invalid && signupForm.get('userName').touched}">
+            <div class='invalid-feedback' *ngIf="signupForm.get('userName').errors">
+                <div *ngIf="signupForm.get('userName').errors.required">Please enter Email!!</div>
+                <div *ngIf="signupForm.get('userName').errors.pattern"> Username is not valid.</div>
+            </div>
+        </div>
+        <div class="form-group pt-2">
+            <label for="FullName" class="col-form-label">Full Name:</label>
+            <input class='form-control' type='text' id='FullName' placeholder="Enter your Name" formControlName='FullName' [ngClass]="{'is-invalid':signupForm.get('FullName').invalid && signupForm.get('FullName').touched}" />
+            <div class='invalid-feedback' *ngIf="signupForm.get('FullName').errors">
+                <div *ngIf="signupForm.get('FullName').errors.required">Please enter userFullName!!</div>
+                <div *ngIf="signupForm.get('FullName').errors.minlength"> Name must be at least 3 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group pt-2">
+            <label for="Address" class="col-form-label">Address:</label>
+            <input class='form-control' type='text' id='Address' placeholder="Enter your Address" formControlName='Address' [ngClass]="{'is-invalid':signupForm.get('Address').invalid && signupForm.get('Address').touched}" />
+            <div class='invalid-feedback' *ngIf="signupForm.get('Address').errors">
+                <div *ngIf="signupForm.get('Address').errors.required">Please enter userAddress!!</div>
+                <div *ngIf="signupForm.get('Address').errors.minlength"> Name must be at least 20 characters long.</div>
+            </div>
+        </div>
+
+        <div class="form-group pt-2">
+            <label for="userFullName" class="col-form-label">Enter Password:</label>
+            <input class='form-control' type='password' id='password' placeholder="Password" formControlName='password' [ngClass]="{'is-invalid':signupForm.get('password').invalid && signupForm.get('password').touched}" />
+            <div class='invalid-feedback' *ngIf="signupForm.get('password').errors">
+                <div *ngIf="signupForm.get('password').errors.required">Please enter password!!</div>
+                <div *ngIf="signupForm.get('password').errors.pattern"> Password is not valid</div>
+            </div>
+        </div>
+        <div class="form-group p-4 text-center">
+            <button class="btn btn-success" [disabled]="signupForm.invalid" type="submit">CREATE A NEW ACCOUNT</button> </div>
+    </form>
+</div>

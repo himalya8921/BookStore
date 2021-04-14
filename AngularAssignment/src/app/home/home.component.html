@@ -1,0 +1,55 @@
+<p>home works!</p>
+
+<!--<div class="card m-5" style="width:18rem" *ngFor="let book of bookDetails">
+  <ul class="list-group">
+    <li class="list-group-item"><strong>BookName : </strong>{{book.bookName}}</li>
+    <li class="list-group-item"><strong>BookAuthor : </strong>{{book.bookAuthor}}</li>
+     <li class="list-group-item"><strong>BookSummary : </strong>{{book.bookSummary}}</li>
+      <li class="list-group-item"><strong>BookPrice : </strong>{{book.bookPrice}}</li>
+
+
+
+
+  </ul>
+</div>-->
+
+<div class="container my-5">
+    <h1 class="text-center p-3">Library Books</h1>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary"><a href="#" [routerLink]="['/addnewbook']" style="text-decoration: none; color: white;">ADD A NEW BOOK</a></button>
+        </div>
+
+           <div class="col">
+            <button class="btn btn-primary"><a href="#" [routerLink]="['/managecoowners']" style="text-decoration: none; color: white;">MANAGE CO-OWNER</a></button>
+        </div>
+        
+           <div class="col"> </div>
+           
+           <div class="col"> </div>
+           <div class="col"></div>
+    </div>
+    <div class="row p-3">
+        <table class="table table-striped border-secondary">
+            <thead class="lead">
+                <tr>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Price</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of bookList">
+                    <td>{{book.bookName}}</td>
+                    <td>{{book.bookAuthor}}</td>
+                    <td>{{book.bookPrice}}</td>
+                    <td><button class="btn btn-danger" style="width: 100%;" (click)="EditBook(book.bookId)">Edit</button></td>    
+                    <td><button class="btn btn-danger" style="width: 100%;" (click)="DeleteBook(book.bookId)">DELETE</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

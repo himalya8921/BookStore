@@ -1,0 +1,49 @@
+<div class="container my-5">
+    <h1 class="text-center">Add a new Book</h1>
+    <form [formGroup]="newBook" (ngSubmit)="UpdateBook(newBook)">
+        <div class="form-group">
+            <label for="bookName" class="col-form-label">Book Title:</label>
+            <input class='form-control' placeholder="Enter the name of Book" type='text' id='bookName' formControlName='bookName' [ngClass]="{'is-invalid':newBook.get('bookName').invalid && newBook.get('bookName').touched}">
+            <div class='invalid-feedback' *ngIf="newBook.get('bookName').errors">
+                <div *ngIf="newBook.get('bookName').errors.required">Please enter Book Name!!</div>
+                <div *ngIf="newBook.get('bookName').errors.minlength"> Book Name must not be this short.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group pt-2">
+            <label for="bookAuthor" class="col-form-label">Author Name:</label>
+            <input class='form-control' placeholder="Author Name" type='text' id='bookAuthor' formControlName='bookAuthor' [ngClass]="{'is-invalid':newBook.get('bookAuthor').invalid && newBook.get('bookAuthor').touched}" />
+            <div class='invalid-feedback' *ngIf="newBook.get('bookAuthor').errors">
+                <div *ngIf="newBook.get('bookAuthor').errors.required">Please enter Author Name!!</div>
+                <div *ngIf="newBook.get('bookAuthor').errors.minlength"> Name must be at least 3 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group pt-2">
+            <label for="bookSummary" class="col-form-label">Summary:</label>
+            <!-- <input class='form-control' type='bookSummary' id='bookSummary' formControlName="bookSummary" [ngClass]="{'is-invalid':newBook.get('bookSummary').invalid && newBook.get('bookSummary').touched}" /> -->
+            <textarea name="text" cols="25" rows="3" placeholder="Write summary of book here...." class='form-control' type='bookSummary' id='bookSummary' formControlName="bookSummary" [ngClass]="{'is-invalid':newBook.get('bookSummary').invalid && newBook.get('bookSummary').touched}">
+                Add multiple lines of text here and watch the scrollbars grow...
+            </textarea>
+            <div class='invalid-feedback' *ngIf="newBook.get('bookSummary').errors">
+                <div *ngIf="newBook.get('bookSummary').errors.required">Please enter Book Summary!!</div>
+                <div *ngIf="newBook.get('bookSummary').errors.minlength"> Summary must be at least 50 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group pt-2">
+            <label for="bookPrice" class="col-form-label">Price:</label>
+            <input class='form-control' placeholder="Enter the price of book" type='number' id='bookPrice' formControlName='bookPrice' [ngClass]="{'is-invalid':newBook.get('bookPrice').invalid && newBook.get('bookPrice').touched}" />
+            <div class='invalid-feedback' *ngIf="newBook.get('bookPrice').errors">
+                <div *ngIf="newBook.get('bookPrice').errors.required">Please enter Price of Book!!</div>
+            </div>
+        </div>
+        <div class="form-group p-4 text-center">
+            <button type="submit" class="btn btn-success m-4" [disabled]="!newBook.valid">Save</button>
+            <button type="reset" class="btn btn-danger m-4"><a [routerLink]="['/ownermain']" style="text-decoration: none; color: white;">Back to List</a></button>
+        </div>
+    </form>
+</div>

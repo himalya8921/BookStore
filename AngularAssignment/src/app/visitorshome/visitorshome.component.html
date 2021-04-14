@@ -1,0 +1,28 @@
+
+     <div class="form-group p-4">
+     <h4>Already have an account?</h4>
+            <button class="btn btn-success"><a href="#" [routerLink]="['/mybooklist']" style="text-decoration: none; color: white;">Login</a></button> </div>
+<div class="container my-5">
+    <h1 class="text-center p-3">Library Books</h1>
+    <div class="row p-3">
+        <table class="table table-striped border-secondary">
+            <thead class="lead">
+                <tr>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Price</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of bookList">
+                    <td>{{book.bookName}}</td>
+                    <td>{{book.bookAuthor}}</td>
+                    <td>{{book.bookPrice}}</td>
+                    <td><button class="btn btn-success" style="width: 100%;">Add to My List</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

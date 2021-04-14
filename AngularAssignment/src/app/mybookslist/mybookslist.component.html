@@ -1,0 +1,23 @@
+<div class="container my-5">
+    <h1 class="text-center p-3">My Book List</h1>
+    <div class="row p-3">
+        <table class="table table-striped border-secondary">
+            <thead class="lead">
+                <tr>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of mybookList">
+                    <td>{{book.bookName}}</td>
+                    <td>{{book.Author}}</td>
+                    <td>{{book.Price}}</td>
+                    <td><button class="btn btn-success" (click)=GetId(book.bookId)>Read Book</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
